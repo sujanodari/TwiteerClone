@@ -18,7 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CamaraActivity"></activity>
+        <activity
+            android:name=".TwiteerDashActivity"
+            android:label="@string/title_activity_twiteer_dash"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activity.CamaraActivity" />
         <activity android:name=".activity.PasswordActivity" />
         <activity android:name=".activity.VerificationActivity" />
         <activity android:name=".activity.FinalRegisterActivity" />

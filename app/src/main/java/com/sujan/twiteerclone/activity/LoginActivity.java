@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sujan.twiteerclone.R;
+import com.sujan.twiteerclone.TwiteerDashActivity;
 import com.sujan.twiteerclone.apis.TwiteerApi;
 import com.sujan.twiteerclone.model.CreateUser;
 import com.sujan.twiteerclone.responses.ImageResponse;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView btnSignup;
     EditText etPhone, etPassword;
     String user,pass,status;
+    public static  String userr,token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +87,13 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         Response<LoginResponses> loginResponsesResponse = call.execute();
                         status=loginResponsesResponse.body().getStatus();
-                        Toast.makeText(LoginActivity.this, ""+loginResponsesResponse.body().getStatus(), Toast.LENGTH_SHORT).show();
+                        token=loginResponsesResponse.body().getUsertoken();
+                        userr=loginResponsesResponse.body().getUsername();
 
+                        if(status.equals("202")){
+                            Intent intent = new Intent(LoginActivity.this, TwiteerDashActivity.class);
+                            startActivity(intent);
+                        }
                     } catch (IOException e) {
                         Toast.makeText(LoginActivity.this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
