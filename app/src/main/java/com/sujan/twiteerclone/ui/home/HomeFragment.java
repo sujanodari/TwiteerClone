@@ -47,6 +47,10 @@ public class HomeFragment extends Fragment {
 
 
         tweetMS.add(new TweetM("My life My rule","easy-come easy-go","my.jpg", "mym.jpg"));
+        tweetMS.add(new TweetM("My rule","easy-come","my.jpg", "mym.jpg"));
+        tweetMS.add(new TweetM("My life ","easy-go","my.jpg", "mym.jpg"));
+        tweetMS.add(new TweetM("My life My rule","easy-come easy-go","my.jpg", "mym.jpg"));
+        tweetMS.add(new TweetM("Dell","easy easy-go","my.jpg", "mym.jpg"));
         TweetAdapter tweetAdapter = new TweetAdapter(getContext(), tweetMS);
         recyclerView.setAdapter(tweetAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
