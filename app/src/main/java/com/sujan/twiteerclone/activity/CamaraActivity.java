@@ -107,8 +107,10 @@ String Phone,Email,status,ProfileImage,Bio,Interest, Password=PasswordActivity.P
         try {
             Response<LoginResponses> loginResponsesResponse = call.execute();
             status=loginResponsesResponse.body().getStatus();
-            Toast.makeText(CamaraActivity.this, ""+loginResponsesResponse.body().getStatus(), Toast.LENGTH_SHORT).show();
-
+           if(status.equals("201")){
+               Intent intent = new Intent(CamaraActivity.this, LoginActivity.class);
+               startActivity(intent);
+           }
         } catch (IOException e) {
             Toast.makeText(CamaraActivity.this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
